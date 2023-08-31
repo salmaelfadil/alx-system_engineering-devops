@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # displays the content of the file /etc/passwd using IFS + while loop
 
-while IFS=: read usrname p usrid gid _ info home shell; do 
+while IFS=: read usrname p usrid gid info home shell; do 
 	echo "The user $usrname is part of the $gid gang, lives in $home and rides $shell. $usrid's place is protected by the passcode $p, more info about the user here: $info"
 done < /etc/passwd
