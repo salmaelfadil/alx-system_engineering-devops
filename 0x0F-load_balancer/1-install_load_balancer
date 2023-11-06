@@ -3,10 +3,10 @@
 
 apt-get -y update
 apt-get -y upgrade
-apt-get install --no-install-recommends software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.0
-apt-get install haproxy
+apt-get install software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.5
 apt-get -y update
+apt-get -y install haproxy
 
 balancer="\
 frontend haproxy_balancer
