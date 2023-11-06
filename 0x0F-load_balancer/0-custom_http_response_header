@@ -1,4 +1,5 @@
-onfigure web server and add Nginx header
+#!/usr/bin/env bash
+# configure web server and add Nginx header
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
