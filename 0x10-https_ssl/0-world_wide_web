@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Confiugre domain zone
+
+domain_fun () {
+domain="$1"
+subs=("www" "lb-01" "web-01" "web-02")
+for sub in "${subs[@]}"; do
+dig "${sub}".domain | grep -A1 'ANSWER SECTION:' | \
+awk 'FNR == 2 {printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$sub"
+done
+}
+
+subdomain_fun () {
+dig "${2}"."$1" | grep -A1 'ANSWER SECTION:' | \
+awk 'FNR == 2 {printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$2"
+}
+
+if [$# -eq 1]
+then
+    domain_fun "$1";
+elif [$# -eq 2]
+then 
+     subdomain_fun "$1" "$2";
+else
+echo "Usage: $0 <domain> [subdomain]"
+fi
