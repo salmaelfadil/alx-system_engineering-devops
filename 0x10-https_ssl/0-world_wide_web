@@ -20,6 +20,6 @@ if [ $# -eq 1 ]; then
 elif [ $# -eq 2 ]; then
   subdomain_fun "$1" "$2"
 else
-  echo "Usage: $0 <domain> [subdomain]"
+  pass
 fi
 
