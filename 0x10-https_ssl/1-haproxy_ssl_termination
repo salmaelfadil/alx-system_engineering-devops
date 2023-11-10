@@ -17,11 +17,11 @@ defaults
     errorfile 504 /etc/haproxy/errors/504.http
 
 frontend http_front
-    bind /*:80
+    bind *:80
     default_backend http_back
 
 frontend www-https
-    bind /*:443 ssl crt /etc/haproxy/certs/www.salmaelfadil.tech.pem
+    bind *:443 ssl crt /etc/haproxy/certs/www.salmaelfadil.tech.pem
     default_backend webserver
 
 backend http_back
@@ -33,3 +33,4 @@ backend webserver
     balance roundrobin
     server web-01 54.145.85.75:80 check
     server web-02 100.25.145.243:80 check
+
