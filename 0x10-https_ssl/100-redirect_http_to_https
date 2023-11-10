@@ -18,6 +18,9 @@ defaults
 
 frontend http_front
     bind *:80
+    mode http
+    reqadd X-Forwarded-Proto:\ http
+    redirect scheme https code 301 if !{ ssl_fc }
     default_backend http_back
 
 frontend https_front
