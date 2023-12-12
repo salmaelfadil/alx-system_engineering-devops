@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" returns a list containing the titles of all hot articles for a given subreddit"""
+"""returns titles of all hot articles for a given subreddit"""
 import pprint
 import requests
 
